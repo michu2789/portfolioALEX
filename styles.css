@@ -1,0 +1,336 @@
+/* Color Palette */
+:root {
+    --bg-color: #F6E8EA;
+    --text-color: #22181C;
+    --accent-color: #F18805;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    height: 80px;
+}
+
+/* Hamburger Animation */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 35px;
+    z-index: 100;
+}
+
+.bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--text-color);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover .bar {
+    background-color: var(--accent-color);
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+    background-color: var(--accent-color);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+    background-color: var(--accent-color);
+}
+
+/* Language Toggle Switch */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--text-color);
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--bg-color);
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(28px);
+}
+
+.slider.round {
+    border-radius: 28px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Content Layout */
+.hero {
+    height: 80vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 10; 
+}
+
+.content-block {
+    height: 100vh;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    z-index: 10; 
+}
+
+h1 {
+    font-size: clamp(4rem, 12vw, 12rem);
+    font-weight: 900;
+    line-height: 1;
+    text-transform: lowercase;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Tape Container */
+.tape-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    overflow: hidden;
+    pointer-events: none; 
+    transition: opacity 1.5s ease;
+}
+
+.tape-container.hidden {
+    opacity: 0;
+}
+
+.tape {
+    position: absolute;
+    width: 200%; 
+    height: clamp(30px, 5vw, 60px);
+    background: repeating-linear-gradient(
+        -45deg,
+        #22181C,
+        #22181C 15px,
+        #F18805 15px,
+        #F18805 30px
+    );
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.tape-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    color: #F6E8EA;
+    display: inline-block;
+    will-change: transform;
+}
+
+.tape-1 {
+    top: 35%;
+    left: -10%;
+    transform: rotate(10deg);
+}
+
+.tape-2 {
+    bottom: 35%;
+    left: -50%;
+    transform: rotate(-8deg);
+}
+
+/* Endless Photowall Styles */
+.photowall {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    background-color: var(--bg-color);
+    overflow: hidden; 
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.marquee-row {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.marquee-track {
+    display: flex;
+    will-change: transform;
+}
+
+.photo-set {
+    display: flex;
+    gap: 2px;
+    padding-right: 2px;
+    flex-shrink: 0;
+}
+
+.photo-container {
+    width: calc(25vw - 1.5px); 
+    flex-shrink: 0;
+    aspect-ratio: 4 / 3;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .photo-container {
+        width: calc(50vw - 1px);
+    }
+}
+
+/* Prank Button Styles */
+.joke-container {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.joke-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 20px);
+}
+
+.pill-btn {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: bouncy 2s infinite;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pill-btn:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    animation: none;
+    transform: scale(1.05);
+}
+
+.joke-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: light;
+    opacity: 0;
+    margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.joke-text.visible {
+    opacity: 1;
+}
+
+@keyframes bouncy {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}

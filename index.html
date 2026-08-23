@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Alex</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- The Construction Tapes -->
+    <div class="tape-container hidden" id="tape-barrier">
+        <div class="tape tape-1">
+            <span class="tape-text" id="text-1">
+                UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION
+            </span>
+        </div>
+        <div class="tape tape-2">
+            <span class="tape-text" id="text-2">
+                UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp; UNDER CONSTRUCTION
+            </span>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="lang-toggle">
+            <span class="lang-label">EN</span>
+            <label class="switch">
+                <input type="checkbox" id="lang-switch">
+                <span class="slider round"></span>
+            </label>
+            <span class="lang-label">DE</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="hero" id="hero-section">
+            <h1 id="main-title">hi alex</h1>
+            <p id="subtitle">get well soon!</p>
+        </div>
+
+        <!-- Photowall Section -->
+        <section class="photowall" id="photowall-container">
+            <!-- These 12 placeholders will be grabbed, shuffled, and duplicated by JS -->
+            <div class="photo-container"><img src="a01.webp" alt="Photo 1" class="photo"></div>
+            <div class="photo-container"><img src="a02.webp" alt="Photo 2" class="photo"></div>
+            <div class="photo-container"><img src="a03.webp" alt="Photo 3" class="photo"></div>
+            <div class="photo-container"><img src="a04.webp" alt="Photo 4" class="photo"></div>
+            <div class="photo-container"><img src="a05.webp" alt="Photo 5" class="photo"></div>
+            <div class="photo-container"><img src="a06.webp" alt="Photo 6" class="photo"></div>
+            <div class="photo-container"><img src="a07.webp" alt="Photo 7" class="photo"></div>
+            <div class="photo-container"><img src="a08.webp" alt="Photo 8" class="photo"></div>
+            <div class="photo-container"><img src="a09.webp" alt="Photo 9" class="photo"></div>
+            <div class="photo-container"><img src="a10.webp" alt="Photo 10" class="photo"></div>
+            <div class="photo-container"><img src="a11.webp" alt="Photo 11" class="photo"></div>
+            <div class="photo-container"><img src="a12.webp" alt="Photo 12" class="photo"></div>
+        </section>
+
+        <!-- Portfolio Content -->
+        <div class="content-block">
+            <h2 id="portfolio-title">Your Portfolio</h2>
+            <p id="portfolio-desc">Keep scrolling down to move the tapes!</p>
+        </div>
+        <div class="content-block"></div>
+        <div class="content-block"></div>
+    </main>
+
+    <!-- Prank Button -->
+    <div id="joke-container" class="joke-container hidden">
+        <button id="back-to-top" class="pill-btn">Top or Bottom?</button>
+        <span id="joke-response" class="joke-text">You're a Bottom.</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
